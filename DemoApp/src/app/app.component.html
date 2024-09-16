@@ -1,0 +1,7 @@
+<main>
+  <p>Main</p>
+  @if(!showDeferred){<p>Klikkaa ruksi, jotta deferred tulee näkyviin</p>}
+  @else {<p>Se on jo näkyvissä, pois se ei lähde</p>}
+  <input type="checkbox" [(ngModel)]="showDeferred" />
+  @defer(when showDeferred) {<app-deferred [show]="showDeferred" />}
+</main>
