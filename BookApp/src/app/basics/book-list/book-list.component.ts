@@ -18,6 +18,6 @@ export class BookListComponent {
   }
 
   public goto(book:Book){
-    this.router.navigate(['/books',book.id])
+    this.router.navigate(['/books',book.id,{some:"Vielä joku"}])
   }
 }

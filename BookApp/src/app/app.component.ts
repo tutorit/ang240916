@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BookApp';
+
+  routerActivate(ev:any){
+    console.log("Router activate",ev);
+  }
 }

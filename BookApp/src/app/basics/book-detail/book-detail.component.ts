@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DirtyService } from '../dirty.service';
 
 @Component({
   selector: 'app-book-detail',
@@ -7,18 +9,25 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./book-detail.component.css']
 })
 export class BookDetailComponent {
-  public id:number=0;
+  @Input("id") public idBinding:number=0;
+  public idSubscribe:number=0;
+  @Input() public some:string="Facebook";
 
-  constructor(private route:ActivatedRoute,private router:Router){}
+  constructor(private route:ActivatedRoute,
+              private router:Router, 
+              private location:Location,
+              public dirtyService:DirtyService ){}
 
   ngOnInit(){
+    this.route.queryParamMap.subscribe(qp => console.log(qp));
     this.route.paramMap.subscribe(params => {
-      this.id=Number(params.get("id"));
+      this.idSubscribe=Number(params.get("id"));
     });
   }
 
   back(){
-    this.router.navigate(["/books"]);
+    //this.router.navigate(["/books"]);
+    this.location.back();
   }
 
 }

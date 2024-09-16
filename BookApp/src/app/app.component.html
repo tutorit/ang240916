@@ -9,7 +9,7 @@
       <a routerLink="/books">Kirjat</a>
   </nav>
   <main>
-    <router-outlet />
+    <router-outlet (activate)="routerActivate($event)" />
   </main>
   <footer>
     Copyright (c) Codetutors Consulting Ltd

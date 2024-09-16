@@ -4,6 +4,7 @@ const express = require('express');
 let app = express();
 
 app.use(express.static(wwwroot));
+app.use(express.static("../BookApp/dist/book-app/browser"))
 
 require('./bookapi')(app);
 require('./standardapi')(app);
@@ -13,12 +14,12 @@ require('./websocket')(serverPort+1);
 
 
 // Needed for browserRouter, change the path to point to your index.html
-/*
+
 const path = require('path')
 app.get('*', function (request, response){
-  response.sendFile(path.resolve(__dirname, '../book-app/build', 'index.html'))
+  response.sendFile(path.resolve(__dirname, '../BookApp/dist/book-app/browser', 'index.html'))
 })
-*/
+
 
 
 
