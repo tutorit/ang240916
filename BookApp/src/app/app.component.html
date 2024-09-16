@@ -4,9 +4,12 @@
     <h1>Book application</h1>
   </header>
   <nav> 
+      <a routerLink="/">Koti</a>
+      <a [routerLink]="['/calc']">Laskin</a>
+      <a routerLink="/books">Kirjat</a>
   </nav>
   <main>
-    <app-calculator />
+    <router-outlet />
   </main>
   <footer>
     Copyright (c) Codetutors Consulting Ltd

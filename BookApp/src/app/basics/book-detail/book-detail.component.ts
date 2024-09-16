@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-detail',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./book-detail.component.css']
 })
 export class BookDetailComponent {
+  public id:number=0;
+
+  constructor(private route:ActivatedRoute,private router:Router){}
+
+  ngOnInit(){
+    this.route.paramMap.subscribe(params => {
+      this.id=Number(params.get("id"));
+    });
+  }
+
+  back(){
+    this.router.navigate(["/books"]);
+  }
 
 }

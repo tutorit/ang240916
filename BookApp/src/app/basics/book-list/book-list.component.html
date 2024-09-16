@@ -7,8 +7,8 @@
     </thead>
     <tbody>
         <tr *ngFor="let book of books">
-            <td>{{book.id}}</td>
-            <td>{{book.title}}</td>
+            <td><a [routerLink]="['/books',book.id]">{{book.id}}</a></td>
+            <td (click)="goto(book)">{{book.title}}</td>
             <td>{{book.author}}</td>
         </tr>
     </tbody>
