@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DirtyService } from '../dirty.service';
+import { DirtyService } from '../../basics/dirty.service';
 
 @Component({
   selector: 'app-book-detail',

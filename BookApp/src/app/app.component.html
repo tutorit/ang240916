@@ -7,6 +7,7 @@
       <a routerLink="/">Koti</a>
       <a [routerLink]="['/calc']">Laskin</a>
       <a routerLink="/books">Kirjat</a>
+      <a routerLink="users">Käyttäjät</a>
   </nav>
   <main>
     <router-outlet (activate)="routerActivate($event)" />
