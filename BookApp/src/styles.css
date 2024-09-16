@@ -1,0 +1,21 @@
+header h1{
+    display:inline;
+}
+
+nav{
+    border-top: 1px solid #2040a0;
+    border-bottom: 1px solid #2040a0;
+}
+
+nav a{
+    margin-right: 5px;
+}
+
+main{
+    min-height: 300px;
+    margin:10px 0;
+}
+
+footer {
+    border-top: 1px solid #2040a0;
+}
