@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DirtyService {
   public isDirty:boolean=true;
+  public message:string="";
 
 
   constructor() { 

@@ -1,1 +1,5 @@
-<p>user-list works!</p>
+<h2>Käyttäjät</h2>
+
+@for(user of users; track user.id){
+    <p><a [routerLink]="['./',user.id]">{{user.username}}:{{user.firstName}} {{user.lastName}}</a></p>
+}
