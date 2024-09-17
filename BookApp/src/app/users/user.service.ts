@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../entities/user';
 import { concatAll, filter, map } from 'rxjs';
+import { savePerson } from './dboperations';
 
 @Injectable()
 export class UserService {
@@ -32,6 +33,10 @@ export class UserService {
       })
     }
     return user;
+  }
+
+  toDb(){
+    this.users.forEach(p => savePerson(p));
   }
 
   save(user:User){

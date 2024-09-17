@@ -10,7 +10,7 @@ import { User } from '../../entities/user';
 export class UserListComponent {
   public users:User[]=[];
 
-  constructor(private userService:UserService){}
+  constructor(public userService:UserService){}
 
   ngOnInit(){
     this.users=this.userService.getAll(); //.subscribe((users:User[]) => this.users=users);
