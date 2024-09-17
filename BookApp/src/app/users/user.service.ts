@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../entities/user';
-import { concatAll, filter, map } from 'rxjs';
+import { concatAll, filter, map, of } from 'rxjs';
 import { savePerson } from './dboperations';
 
 @Injectable()
@@ -56,11 +56,16 @@ export class UserService {
 
   testRxjs(){
     this.http.get<User[]>("/api/persons")
+    //of(this.users)
       .pipe(
         concatAll(),
         filter(p => p.username.includes("n")),
         map(p => p.firstName)
       )
-      .subscribe(p => console.log("Person",p));
+      .subscribe({
+        next:n => console.log("Nimi",n),
+        complete: () => console.log("rxjs lopettaa")
+      });
+    console.log("Funktio palaa");
   }
 }

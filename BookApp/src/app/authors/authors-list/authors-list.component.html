@@ -1,0 +1,5 @@
+<h2>Kirjailijat</h2>
+
+<p *ngFor="let author of authors | async" (click)="selected(author)">
+    {{author.firstName}} {{author.lastName}}
+</p>

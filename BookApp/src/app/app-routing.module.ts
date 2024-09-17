@@ -7,6 +7,7 @@ import { BookListComponent } from './books/book-list/book-list.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { activateGuardGuard } from './basics/activate-guard.guard';
 import { dirtyGuard } from './basics/dirty.guard';
+import { AuthorsComponent } from './authors/authors/authors.component';
 
 const routes:Routes=[
   {path:'',component:BasicsMainComponent,canActivate:[activateGuardGuard]},
@@ -14,6 +15,7 @@ const routes:Routes=[
   {path:'books',title:"Kirjalista",component:BookListComponent},
   {path:'books/:id',component:BookDetailComponent,canDeactivate:[dirtyGuard]},
   { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+  {path:'authors',component:AuthorsComponent}
 ]
 
 @NgModule({

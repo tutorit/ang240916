@@ -11,6 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { BooksModule } from './books/books.module';
 import { UsersModule } from './users/users.module';
 import {PipeModule} from '../../../lib-workspace/dist/pipe-lib';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers, authorsReducer, selectedReducer } from './reducers';
+import { AuthorsComponent } from './authors/authors/authors.component';
+import { AuthorsListComponent } from './authors/authors-list/authors-list.component';
+import { AuthorsDetailComponent } from './authors/authors-detail/authors-detail.component';
+import { provideHttpClient } from '@angular/common/http';
  
 @NgModule({
   declarations: [
@@ -21,6 +27,9 @@ import {PipeModule} from '../../../lib-workspace/dist/pipe-lib';
     */
     CalculatorComponent,
     BasicsMainComponent,
+    AuthorsComponent,
+    AuthorsListComponent,
+    AuthorsDetailComponent,
 
   ],
   imports: [
@@ -29,9 +38,10 @@ import {PipeModule} from '../../../lib-workspace/dist/pipe-lib';
     AppRoutingModule,
     BooksModule,
     /*UsersModule*/
-    PipeModule 
+    PipeModule,
+    StoreModule.forRoot({authors:authorsReducer,selected:selectedReducer},{}) 
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
