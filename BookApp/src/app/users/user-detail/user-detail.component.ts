@@ -10,19 +10,33 @@ import { User } from '../../entities/user';
 })
 export class UserDetailComponent {
   public user:User=new User();
+  public errorMsg:string="";
 
   constructor(private route:ActivatedRoute,private userService:UserService){}
 
   ngOnInit(){
     this.route.paramMap.subscribe(params => {
       let id=Number(params.get("id"));
-      this.userService.get(id).subscribe(user => {
+      this.user=this.userService.get(id);
+      /*
+      .subscribe(user => {
         this.user=user;
       })
+        */
     })
   }
 
   save(){
-    this.userService.save(this.user).subscribe(u => 0);
+    this.errorMsg="";
+    this.userService.save(this.user)
+      .subscribe({
+        next(u){
+          console.log("Talletettu")            
+        },
+        error:e => {
+          this.errorMsg="Virhe talletuksessa";
+          console.log(e);
+        },complete:() => "Detail, complete"
+      });
   }
 }

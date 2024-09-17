@@ -8,6 +8,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { provideHttpClient } from '@angular/common/http';
 import { UserService } from './user.service';
 import { FormsModule } from '@angular/forms';
+import { PipeModule } from '../../../../lib-workspace/dist/pipe-lib';
 
 
 @NgModule({
@@ -18,8 +19,9 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule,
-    FormsModule
+    UsersRoutingModule, 
+    FormsModule,
+    PipeModule
   ],
   providers:[provideHttpClient(),UserService]
 })

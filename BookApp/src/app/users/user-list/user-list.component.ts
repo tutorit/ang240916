@@ -5,7 +5,7 @@ import { User } from '../../entities/user';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrl: './user-list.component.css'
+  styleUrl: './user-list.component.css',
 })
 export class UserListComponent {
   public users:User[]=[];
@@ -13,6 +13,10 @@ export class UserListComponent {
   constructor(private userService:UserService){}
 
   ngOnInit(){
-    this.userService.getAll().subscribe((users:User[]) => this.users=users);
+    this.users=this.userService.getAll(); //.subscribe((users:User[]) => this.users=users);
+  }
+
+  testRxjs(){
+    this.userService.testRxjs();
   }
 }

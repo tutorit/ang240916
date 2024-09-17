@@ -10,16 +10,18 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BooksModule } from './books/books.module';
 import { UsersModule } from './users/users.module';
-
+import {PipeModule} from '../../../lib-workspace/dist/pipe-lib';
+ 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, 
     /*
     BookListComponent,
     BookDetailComponent,
     */
     CalculatorComponent,
-    BasicsMainComponent
+    BasicsMainComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { UsersModule } from './users/users.module';
     AppRoutingModule,
     BooksModule,
     /*UsersModule*/
+    PipeModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
